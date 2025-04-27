@@ -10,9 +10,9 @@ info "Starting setup in $script_dir."
 # First step : identify the distro
 
 for entry in "$script_dir"/*; do
-   if [[ -d "$entry" ]] && [[ "$(basename "$entry")" != "post_install" ]]; then
-       supported_distro_list+=("$(basename "$entry")")
-   fi
+    if [[ -d "$entry" ]] && [[ "$(basename "$entry")" != "post_install" ]]; then
+        supported_distro_list+=("$(basename "$entry")")
+    fi
 done
 
 distro=""
@@ -45,7 +45,6 @@ fi
 # and to easily debug any permission problem/whatever annoyance can arise
 
 execute_scripts_in_folder "$script_dir"/"$distro" || exit 1
-
 
 # Third step : deploy the configuration using chezmoi (which has been installed before)
 
