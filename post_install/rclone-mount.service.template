@@ -1,0 +1,14 @@
+[Unit]
+Description=Rclone mount for %REMOTE_NAME%
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount %REMOTE_NAME% %MOUNT_POINT% --allow-other --vfs-cache-mode full --vfs-cache-max-size 10G
+ExecStop=/bin/fusermount3 -u %MOUNT_POINT%
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
