@@ -17,3 +17,8 @@ rclone
 zed
 yay
 wl-clipboard
+signal-desktop
+lazygit
+docker
+gimp
+vlc
